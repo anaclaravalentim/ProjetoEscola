@@ -9,3 +9,20 @@ class Aluno(models.Model):                                  # Criação da tabel
 
     def __str__(self):
         return self.nome   # Representação em string de um objeto aluno, retorna o nome do aluno
+    
+
+class Professor(models.Model):
+    GRAU = (                       #tupla de escolhas
+        ('S', 'Superior Completo'),
+        ('M', 'Mestrado'),
+        ('D', 'Doutorado')
+    )
+    grau_instrucao = models.CharField(max_length=1, choices=GRAU, blank=False, null=False,default='S')  # campo grau de instrução varchar
+    nome = models.CharField(max_length=30)                                                              # campo nome varchar
+    
+    def __str__(self):      # Representação em string de um objeto Professor, retorna o nome do Professor
+        return self.nome
+
+
+
+
