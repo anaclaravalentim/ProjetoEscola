@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from escola.models import Aluno, Professor, Curso
-from escola.serializer import AlunoSerializer, ProfessorSerializer, CursoSerializer
+from escola.models import Aluno, Professor, Curso, Matricula
+from escola.serializer import AlunoSerializer, ProfessorSerializer, CursoSerializer, MatriculaSerializer
 
 class AlunosViewSet(viewsets.ModelViewSet): # ViewSet já possui as operações CRUD configuradas automaticamente
     queryset = Aluno.objects.all()          # Consulta que o ViewSet usará para recuperar os objetos Aluno do banco de dados (todos os alunos)
@@ -15,3 +15,8 @@ class ProfessorViewSet(viewsets.ModelViewSet):
 class CursoViewSet(viewsets.ModelViewSet): 
     queryset = Curso.objects.all()          
     serializer_class = CursoSerializer      
+
+
+class MatriculaViewSet(viewsets.ModelViewSet): 
+    queryset = Matricula.objects.all()          
+    serializer_class = MatriculaSerializer      

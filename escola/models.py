@@ -25,18 +25,27 @@ class Professor(models.Model):
 
 
 class Curso(models.Model):
-    NIVEL = (
+    NIVEL = (                       #tupla de escolhas
         ('B', 'Básico'),
         ('I', 'Intermediário'),
         ('A', 'Avançado')
     )
     
-    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
-    codigo_curso = models.CharField(max_length=10)
-    descricao = models.CharField(max_length=100)
-    nivel = models.CharField(max_length=1, choices=NIVEL, blank=False, null=False,default='B')
+    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)      #campo chave vinda da tabela Professor
+    codigo_curso = models.CharField(max_length=10)                          #campo codigo varchar
+    descricao = models.CharField(max_length=100)                            #campo descricao varchar
+    nivel = models.CharField(max_length=1, choices=NIVEL, blank=False, null=False,default='B') #campo nivel varchar
     
     def __str__(self):
         return self.descricao
 
 
+class Matricula(models.Model):       
+    PERIODO = (                     #tupla de escolhas
+        ('M', 'Matutino'),
+        ('V', 'Vespertino'),
+        ('N', 'Noturno')
+    )
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)       #campo chave vinda da tabela Aluno
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)       #campo chave vinda da tabela Curso
+    periodo = models.CharField(max_length=1, choices=PERIODO, blank=False, null=False,default='M') #campo periodo varchar
