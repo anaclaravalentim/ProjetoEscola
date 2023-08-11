@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from escola.models import Aluno, Professor
+from escola.models import Aluno, Professor, Curso
 
 class AlunoSerializer(serializers.ModelSerializer): #simplifica a criação de serializadores 
     class Meta:                 # Define classe interna usada para configurar metadados do serializador
@@ -10,4 +10,10 @@ class AlunoSerializer(serializers.ModelSerializer): #simplifica a criação de s
 class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:                
         model = Professor         
+        fields = '__all__'    
+
+
+class CursoSerializer(serializers.ModelSerializer):
+    class Meta:                
+        model = Curso         
         fields = '__all__'    
