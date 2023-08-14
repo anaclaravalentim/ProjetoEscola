@@ -23,8 +23,8 @@ class CursoViewSet(viewsets.ModelViewSet):
     queryset = Curso.objects.all()          
     serializer_class = CursoSerializer      
     #permission_classes = (IsAuthenticated,)
-    authentication_classes = [BasicAuthentication] #Autenticação, para que não seja visível para todos
-    permission_classes = [DjangoModelPermissions] #caso autenticado, pode consumir os recursos
+    #authentication_classes = [BasicAuthentication] #Autenticação, para que não seja visível para todos
+    #permission_classes = [DjangoModelPermissions] #caso autenticado, pode consumir os recursos
 
 
 class MatriculaViewSet(viewsets.ModelViewSet): 
