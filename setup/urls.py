@@ -9,7 +9,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-
+#Swagger
 schema_view = get_schema_view(  # Cria uma instância do SchemaView a partir da biblioteca drf-yasg
    openapi.Info(
       title="Projeto escola - API",  # Título da documentação
